@@ -1,6 +1,6 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 
-const Card = ({clicked , setClicked}:{clicked :boolean , setClicked:Dispatch<SetStateAction<boolean>>}) => {
+const Card = ({clicked }:{clicked :boolean }) => {
   return (
     <div className=' text-black'>
         {clicked &&  <div className="p-4 bg-white shadow-lg rounded-lg max-w-sm ">
