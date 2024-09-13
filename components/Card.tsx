@@ -2,9 +2,9 @@ import React from 'react'
 
 const Card = ({clicked }:{clicked :boolean }) => {
   return (
-    <div className=' text-black'>
+    <div className=' text-black relative z-50'>
         {clicked &&  <div className="p-4 bg-white shadow-lg rounded-lg max-w-sm ">
-
+ 
       <div className="text-xl font-bold mb-2">Crushs Coaster</div>
 
   
