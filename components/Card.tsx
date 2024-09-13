@@ -5,7 +5,7 @@ const Card = ({clicked }:{clicked :boolean }) => {
     <div className=' text-black'>
         {clicked &&  <div className="p-4 bg-white shadow-lg rounded-lg max-w-sm ">
 
-      <div className="text-xl font-bold mb-2">Crush's Coaster</div>
+      <div className="text-xl font-bold mb-2">Crushs Coaster</div>
 
   
       <div className="flex justify-between items-center">
