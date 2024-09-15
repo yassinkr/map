@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
-const Card = ({clicked }:{clicked :boolean }) => {
+const Card = ({clicked, setClicked}:{clicked :boolean , setClicked: Dispatch<SetStateAction<boolean>> }) => {
   return (
     <div className=' text-black relative z-50'>
         {clicked &&  <div className="p-4 bg-white shadow-lg rounded-lg max-w-sm ">
  
       <div className="text-xl font-bold mb-2">Crushs Coaster</div>
-
+      <button onClick={() => setClicked(!clicked)} className="absolute top-2 right-2"> X</button>
   
       <div className="flex justify-between items-center">
         <div className="font-bold">BIO</div>
@@ -67,7 +67,8 @@ const Card = ({clicked }:{clicked :boolean }) => {
           </svg>
         </button>
       </div>
-                    </div>}
+    </div>
+                    }
     </div>
   )
 }
