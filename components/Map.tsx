@@ -30,7 +30,7 @@ const markers = [
       
 const LeafletMap = () => {
   useEffect(() => {
-   
+    if(typeof window === 'undefined') return;
       // Initialize the map
       const map = L.map('map', {
         center: [51.505, -0.09],
