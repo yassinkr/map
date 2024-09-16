@@ -1,11 +1,9 @@
-// components/LeafletMap.tsx
 
 "use client";
 import { useEffect } from 'react';
-import { createRoot } from 'react-dom/client'; // Import createRoot
+import { createRoot } from 'react-dom/client'; 
 import L, {  LatLngBoundsExpression } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import Button from './Button'; // Import your Button component
+import Button from './Button'; 
 
 // Define the bounds of the image using LatLngTuple
 const bounds: LatLngBoundsExpression = [
@@ -32,7 +30,7 @@ const markers = [
       
 const LeafletMap = () => {
   useEffect(() => {
-   
+   if(typeof window === 'undefined') return;
       // Initialize the map
       const map = L.map('map', {
         center: [51.505, -0.09],
