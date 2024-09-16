@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { createRoot } from 'react-dom/client'; 
 import L, {  LatLngBoundsExpression } from 'leaflet';
 import Button from './Button'; 
+import 'leaflet/dist/leaflet.css';
 
 // Define the bounds of the image using LatLngTuple
 const bounds: LatLngBoundsExpression = [
@@ -34,7 +35,7 @@ const LeafletMap = () => {
       // Initialize the map
       const map = L.map('map', {
         center: [51.505, -0.09],
-        zoom: 13,
+        zoom: 15,
         crs: L.CRS.Simple, // Use Simple CRS for image-based maps
       });
 
