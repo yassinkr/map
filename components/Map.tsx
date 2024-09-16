@@ -1,9 +1,9 @@
 // components/LeafletMap.tsx
 
 "use client";
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { createRoot } from 'react-dom/client'; // Import createRoot
-import L, { LatLngExpression, LatLngBoundsExpression } from 'leaflet';
+import L, {  LatLngBoundsExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import Button from './Button'; // Import your Button component
 
@@ -15,22 +15,19 @@ const bounds: LatLngBoundsExpression = [
 
 // Define markers with relative positions (in pixels)
 const markers = [
-        { position: [51.493, -0.071] },
-        { position: [51.495, -0.075] },
-        { position: [51.496, -0.076] },
-        { position: [51.4975, -0.0765] },
-        { position: [51.4975, -0.074] },
-        { position: [51.493, -0.0669] },
-        { position: [51.496, -0.071] },
-        { position: [51.496, -0.066] },
-        { position: [51.415, -0.14] },
-        { position: [51.405, -0.15] },
-        { position: [51.395, -0.16] },
-        { position: [51.385, -0.17] },
-        { position: [51.375, -0.18] },
-        { position: [51.365, -0.19] },
-        { position: [51.355, -0.2] },
-        { position: [51.345, -0.21] },
+        { position: [51.494, -0.071] , text: "100" },
+        { position: [51.495, -0.075] , text: "200" },
+        { position: [51.498, -0.074] , text: "300" },
+        { position: [51.4975, -0.0765] , text: "400" },
+        { position: [51.4965, -0.0735] , text: "500" },
+        { position: [51.494, -0.0669], text: "600" },
+        { position: [51.4968, -0.071] , text: "700" },
+        { position: [51.4965, -0.068]  , text: "800" },
+        { position: [51.496, -0.064] , text: "900" },
+        { position: [51.498, -0.066] , text: "100" },
+        { position: [51.4978, -0.0635], text: "101" },
+        { position: [51.4997, -0.064] , text: "102" },
+
       ];
       
 const LeafletMap = () => {
@@ -48,15 +45,15 @@ const LeafletMap = () => {
       map.fitBounds(bounds); // Adjust map to fit the image bounds
 
       // Add custom markers
-      markers.forEach(({ position}) => {
-        const [lat, lng] = position; // Lat/Lng coordinates for markers
+      markers.forEach((marker) => {
+        const [lat, lng] = marker.position; // Lat/Lng coordinates for markers
       
         // Create a DOM element for the marker
         const markerElement = document.createElement('div');
         markerElement.className = 'w-fit h-fit'; // Custom class for styling
         // Render the Button component into the DOM element using createRoot
         const root = createRoot(markerElement);
-        root.render(<Button  />);
+        root.render(<Button text ={marker.text}  />);
          console.log(markerElement);
         // Create a Leaflet marker using the DOM element
        L.marker([lat, lng], {
