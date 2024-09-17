@@ -1,0 +1,5 @@
+.leaflet-marker-icon .leaflet-custom-icon .leaflet-zoom-animated .leaflet-interactive {
+    z-index: 100 !important; /* Enforce the same z-index for all custom icons */
+  }
+  
+  

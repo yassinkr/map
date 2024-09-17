@@ -30,7 +30,7 @@ const Button  = ({text}:{text : string |null}) => {
   }, []);
 
   return (
-    <div className="">
+    <div >
       <button
         ref={buttonRef}
         className={` h-12 w-12 text-white font-bold relative  py-2 px-4 rounded ${clicked ? 'hidden' : ''}`}

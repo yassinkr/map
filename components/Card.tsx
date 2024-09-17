@@ -1,9 +1,10 @@
 import React, { Dispatch, SetStateAction } from 'react'
 
 const Card = ({clicked, setClicked}:{clicked :boolean , setClicked: Dispatch<SetStateAction<boolean>> }) => {
+  if (!clicked) return null;
   return (
-    <div className=' text-black absolute z-50'>
-        {clicked &&  <div className="p-4 bg-white shadow-lg rounded-lg max-w-sm ">
+    <div className=' text-black absolute z-50' style={{zIndex:` ${clicked ? '9999' : '0'}`}}>
+       <div className="p-4 bg-white shadow-lg rounded-lg max-w-sm ">
  
       <div className="text-xl font-bold mb-2">Crushs Coaster</div>
       <button onClick={() => setClicked(!clicked)} className="absolute top-2 right-2"> X</button>
@@ -68,7 +69,7 @@ const Card = ({clicked, setClicked}:{clicked :boolean , setClicked: Dispatch<Set
         </button>
       </div>
     </div>
-                    }
+                    
     </div>
   )
 }
