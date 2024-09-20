@@ -49,7 +49,7 @@ const Button  = ({marker}:{marker:Marker}) => {
 </svg>
         </div>
 <div className='absolute top-5 left-6 text-xl'>
-  {marker.name}
+  {marker.id}
 </div>
 
 
