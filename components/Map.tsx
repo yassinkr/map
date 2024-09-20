@@ -5,7 +5,7 @@ import L, { LatLngBoundsExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import Button from './Button';
 import './Map.css';
-
+import { Marker } from '@/server/db';
 const bounds: LatLngBoundsExpression = [
   [51.49, -0.08], // Southwest coordinates
   [51.5, -0.06],  // Northeast coordinates
@@ -26,7 +26,7 @@ const markers = [
   { position: [51.4997, -0.064], text: "102" },
 ];
 
-const LeafletMap = () => {
+const LeafletMap = ({markers}:{markers:Marker[]}) => {
   useEffect(() => {
     const map = L.map('map', {
       center: [51.505, -0.09],
@@ -42,18 +42,15 @@ const LeafletMap = () => {
     L.imageOverlay('/background.jpg', bounds).addTo(map);
     map.fitBounds(bounds);
 
-    // Sort markers by their y position (in ascending order)
-    markers.sort((a, b) => a.position[0] - b.position[0]);
-
-    // Add custom markers with buttons in the same pane
+ 
     markers.forEach((marker) => {
-      const [lat, lng] = marker.position;
+      const {lat, lng} = marker;
 
       const markerElement = document.createElement('div');
       markerElement.className = 'w-fit h-fit relative z-0';
 
       const root = createRoot(markerElement);
-      root.render(<Button text={marker.text} />);
+      root.render(<Button marker={marker}/>);
 
       L.marker([lat, lng], {
         icon: L.divIcon({

@@ -3,8 +3,8 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
 import Card from './Card';
-
-const Button  = ({text}:{text : string |null}) => {
+import { Marker } from '@/server/db';
+const Button  = ({marker}:{marker:Marker}) => {
   const [clicked, setClicked] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -49,14 +49,14 @@ const Button  = ({text}:{text : string |null}) => {
 </svg>
         </div>
 <div className='absolute top-5 left-6 text-xl'>
-  {text}
+  {marker.name}
 </div>
 
 
 
         </button>
       <div ref={cardRef}>
-        <Card clicked={clicked} setClicked={setClicked} />
+        <Card clicked={clicked} setClicked={setClicked} marker={marker} />
       </div>
     </div>
   );
